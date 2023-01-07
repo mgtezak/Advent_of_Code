@@ -21,8 +21,8 @@ for p in perms:
 # one-liner:
 distances = {p: sum([int(line[-1]) for line in lines if p[i] in line and p[i+1] in line][0] for i in range(7)) for p in perms}
 
-one = min(distances.values())
-two = max(distances.values())
+part1 = min(distances.values())
+part2 = max(distances.values())
 
-print(f'Part 1: {one}')
-print(f'Part 2: {two}')
+print(f'Part 1: {part1}')
+print(f'Part 2: {part2}')

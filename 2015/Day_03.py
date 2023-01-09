@@ -1,7 +1,7 @@
 with open('Advent_of_Code/2015/puzzle_input/03.txt') as input:
     moves = input.read()
 
-def one(moves=moves, x=0, y=0):
+def get_visited_coords(moves: str=moves, x: int=0, y: int=0):
     directions = {'v': (0, -1), '^': (0, 1), '<': (-1, 0), '>': (1, 0)}
     visited = {(x, y)}
     for move in moves:
@@ -10,9 +10,9 @@ def one(moves=moves, x=0, y=0):
         visited.add((x, y))
     return visited
 
-def two():
-    santa, robo = moves[0::2], moves[1::2]
-    return one(santa).union(one(robo))
+part1 = len(get_visited_coords())
+santa, robo = moves[0::2], moves[1::2]
+part2 = len(get_visited_coords(santa).union(get_visited_coords(robo)))
 
-print(f'Part 1: {len(one())}')
-print(f'Part 2: {len(two())}')
+print(f'Part 1: {part1}')
+print(f'Part 2: {part2}')

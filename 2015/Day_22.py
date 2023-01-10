@@ -3,16 +3,19 @@ using a completely random strategy. Maybe not the most elegant or efficient solu
     
 1) A depth-first-search algorhythm that explores all possible strategies systematically.
 2) A machine-learning based approach that starts out with a random strategy, and improves on it 
-gradually through the creation, evaluation and selection of random mutations.'''
+gradually through the creation, evaluation and selection of random mutations.
+
+I also just uploaded an interactive version which aims to solve this problem using human input:
+https://github.com/mgtezak/Advent_of_Code/blob/master/2015/Day_22_interactive.py
+I was able to solve part 1 in that way but unfortunately not part 2'''
 
 import random
 from dataclasses import dataclass
 
 
-with open('Advent_of_Code/2015/puzzle_input/22.txt') as input:
-    boss_stats = [int(s.split(': ')[1]) for s in input.read().split('\n')]
-    boss_hp, boss_dmg = boss_stats
-
+# from my puzzle input:
+boss_hp = 55
+boss_dmg = 8
 
 @dataclass
 class InitialState:
@@ -29,8 +32,7 @@ class InitialState:
     
 
 def play_game(GameState: InitialState) -> int:
-    player_armor = 0 if GameState.shield == 0 else 7
-
+    
     if GameState.poison > 0:
         GameState.poison -= 1
         GameState.boss_hp -= 3
@@ -68,19 +70,19 @@ def play_game(GameState: InitialState) -> int:
 
             elif spell=='shield':
                 cost = 113
-                if GameState.mana < cost:
+                if GameState.mana < cost or GameState.shield:
                     continue
                 GameState.shield = 6
 
             elif spell=='poison':
                 cost = 173
-                if GameState.mana < cost:
+                if GameState.mana < cost or GameState.poison :
                     continue
                 GameState.poison = 6
 
             elif spell=='recharge':
                 cost = 229
-                if GameState.mana < cost:
+                if GameState.mana < cost or GameState.recharge:
                     continue
                 GameState.recharge = 5
 
@@ -95,6 +97,7 @@ def play_game(GameState: InitialState) -> int:
             return GameState.spent_mana
     
     if not GameState.player_turn:
+        player_armor = 7 if GameState.shield else 0
         GameState.player_hp -= max(boss_dmg - player_armor, 1)
 
         if GameState.player_hp <= 0:
@@ -102,6 +105,8 @@ def play_game(GameState: InitialState) -> int:
 
     GameState.player_turn = 1 - GameState.player_turn
     return play_game(GameState)
+
+
 
 def play_n_games(n, hard_mode=False):
     best_score = None
@@ -111,6 +116,7 @@ def play_n_games(n, hard_mode=False):
             best_score = score
         
     return best_score
+
 
 print(f'Part 1: {play_n_games(500_000)}')
 print(f'Part 2: {play_n_games(500_000, hard_mode=True)}')

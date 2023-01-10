@@ -1,11 +1,11 @@
 # solution using itertools
 import itertools
 
-with open('Advent_of_Code/2015/puzzle_input/10.txt') as input:
-    input_num = input.read()
+# my puzzle input:
+input_num = '3113322113'
 
 def look_and_say(num, iterations):
-    for i in range(iterations):
+    for _ in range(iterations):
         num = ''.join(str(len(list(g))) + str(n) for n, g in itertools.groupby(num))
     return num
 

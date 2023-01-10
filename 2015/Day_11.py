@@ -1,8 +1,8 @@
 import string
 import re
-    
-with open('Advent_of_Code/2015/puzzle_input/11.txt') as input:
-    pw = input.read()
+
+# my puzzle input:
+pw = 'hepxcrrq'  
 
 def check_pw(pw):
     ''' checks whether pw has two non-overlapping repeated letters and an alphabetical straight'''

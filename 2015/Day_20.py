@@ -5,8 +5,8 @@ Using sympy sped things up considerably'''
 
 import sympy
 
-with open('Advent_of_Code/2015/puzzle_input/20.txt') as input:
-    num = int(input.read())
+# my puzzle input:
+num = 33100000
 
 # part 1:
 i = 700000

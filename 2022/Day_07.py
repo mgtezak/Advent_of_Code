@@ -15,8 +15,8 @@ for line in lines:
         for p in path: 
             dir_size[p] += int(line[0]) 
 
-one = sum([val for val in dir_size.values() if val <= 100_000])
-two = sorted([v for v in dir_size.values() if v >= dir_size['root'] - 40_000_000])[0]
+part1 = sum([val for val in dir_size.values() if val <= 100_000])
+part2 = sorted([v for v in dir_size.values() if v >= dir_size['root'] - 40_000_000])[0]
 
-print(f'Part 1: {one}')
-print(f'Part 2: {two}')
+print(f'Part 1: {part1}')
+print(f'Part 2: {part2}')

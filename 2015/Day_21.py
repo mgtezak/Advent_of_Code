@@ -1,8 +1,9 @@
 import re
 
-with open('Advent_of_Code/2015/puzzle_input/21.txt') as input:
-    boss_stats = [int(s.split(': ')[1]) for s in input.read().split('\n')]
-    boss_hp, boss_dmg, boss_arm = boss_stats
+# from my puzzle input:
+boss_hp = 104
+boss_dmg = 8
+boss_arm = 1
 
 equips = '''\
 Weapons:    Cost  Damage  Armor

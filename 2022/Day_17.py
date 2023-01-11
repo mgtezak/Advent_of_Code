@@ -1,5 +1,3 @@
-from tqdm import tqdm
-
 path = 'Advent_of_Code/2022/puzzle_input/17.txt'
 with open(path) as input:
     jet_pattern = input.read()

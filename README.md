@@ -8,10 +8,17 @@ Will continue improving on my solutions and uploading new ones.
 
 Content so far:
 2022  1-18
+
 2021  1-10
+
 2020  1-10
-2019
-2018
-2017
-2016
-2015 1-25
+
+2019  1-4
+
+2018  1-4
+
+2017  1-2, 4-8, 10
+
+2016  2-8
+
+2015  1-25  (complete)

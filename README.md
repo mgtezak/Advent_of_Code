@@ -4,4 +4,22 @@ If you're not already familiar with this coding challenge event, you can find th
 
 I really like these challenges. They range from very easy to extremely hard (at least for me) and as a beginner I learned so much by giving each problem my best shot and then exploring (and being thouroughly humbled by) other people's solutions. 
 
+Content so far:
+
+2022 : 1-18
+
+2021 : 1-10
+
+2020 : 1-10
+
+2019 : 1-4
+
+2018 : 1-4
+
+2017 : 1-2, 4-8, 10
+
+2016 : 2-8
+
+2015 : 1-25 (complete)
+
 Will continue improving on my solutions and uploading new ones.

@@ -20,6 +20,6 @@ Content so far:
 
 2016...2-8
 
-2015...1-25...(complete)
+2015...1-25 (complete)
 
 Will continue improving on my solutions and uploading new ones.

@@ -6,7 +6,8 @@ I really like these challenges. They range from very easy to extremely hard (at 
 
 Content so far:
 
-2022  1-18
+2022
+1-18
 
 2021  1-10
 

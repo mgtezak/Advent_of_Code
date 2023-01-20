@@ -1,5 +1,9 @@
 path = 'Advent_of_Code/2018/puzzle_input/08.txt'
 
+'''This one is heavily inspired from solutions I found on reddit.
+I like the simplicity of recursive solutions, although I also like 
+to be able to solve any problem non-recursively as well.'''
+
 with open(path) as input:
     nums = list(map(int, input.read().split()))
 

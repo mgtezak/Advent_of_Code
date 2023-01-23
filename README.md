@@ -12,7 +12,7 @@ Content so far:
 
 2020 : 1-10
 
-2019 : 1-9
+2019 : 1-10
 
 2018 : 1-10
 
@@ -21,5 +21,7 @@ Content so far:
 2016 : 1-10
 
 2015 : 1-25 (complete)
+
+Total : 103 / 200 solved
 
 Will continue improving on my solutions and uploading new ones.

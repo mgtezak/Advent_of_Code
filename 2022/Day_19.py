@@ -23,14 +23,16 @@ with open(path) as input:
 
 def get_max_geodes(bp, t_max=24):
 
-    def dfs(robots=np.array([1,0,0,0]), resources=np.array([0,0,0,0]), t=0):
+    def dfs(robots=np.array([1,0,0,0]), resources=np.array([0,0,0,0]), t=0) -> None:
+        '''depth first search algorhythm that searches all interesting strategies'''
+
         t_left = t_max - t
         options = [i for i in range(4) if (robots[i] < max_demand[i]) and all((robots[j] > 0) or not costs[i,j] for j in range(4))]
         t_deltas = [1 + max(max(0, math.ceil((res - resources[i]) / robots[i])) for i, res in enumerate(costs[j]) if res) for j in options]
         
-        for robot, t_delta in zip(options, t_deltas):
-            if (t_delta >= t_left) or (robot != 3 and resources[robot] > 15):  ### 15 was the lowest number where I still got the correct result. 
-                continue                                                          ### Hopefully this is true for other peoples puzzle input as well
+        for robot, t_delta in zip(options, t_deltas):                          # Skipping bots that take too long and those of whose resources I have plenty
+            if (t_delta >= t_left) or (robot != 3 and resources[robot] > 15):  # 15 was the lowest number where I still got the correct result 
+                continue                                                       # Hopefully this is true for other peoples puzzle input as well
 
             new_t = t + t_delta
             new_resources = resources + t_delta * robots - costs[robot]
@@ -38,9 +40,10 @@ def get_max_geodes(bp, t_max=24):
             new_robots[robot] += 1
             dfs(new_robots, new_resources, new_t)
 
-        geodes = resources[3] + robots[3] * t_left
+        geodes = resources[3] + robots[3] * t_left  # Can't build useful bots anymore but there might still be time left to gather geodes
         results.append(geodes)
     
+
     costs, max_demand = blueprints[bp]
     results = []
     dfs()

@@ -6,7 +6,7 @@ I really like these challenges. They range from very easy to extremely hard (at 
 
 Content so far:
 
-2022 : 1-20
+2022 : 1-21
 
 2021 : 1-10
 
@@ -22,6 +22,6 @@ Content so far:
 
 2015 : 1-25 (complete)
 
-Total : 105 / 200 solved
+Total : 106 / 200 solved
 
 Will continue improving on my solutions and uploading new ones.

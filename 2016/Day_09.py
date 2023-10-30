@@ -15,7 +15,7 @@ def decompress(compressed=compressed, part2=False):
             if not part2:
                 length += start + chars * repeat
             elif part2:
-                length += start + decompress(compressed[stop: stop + chars]) * repeat
+                length += start + decompress(compressed[stop: stop + chars], True) * repeat
             compressed = compressed[stop+chars:]
 
         else:

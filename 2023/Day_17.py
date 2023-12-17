@@ -7,35 +7,33 @@ with open('Advent_of_Code/2023/puzzle_input/17.txt', 'r') as f:
 def part1(puzzle_input):
     grid = [[int(d) for d in line] for line in puzzle_input.split('\n')]
     m, n = len(grid), len(grid[0])
+    directions = [(-1, 0), (0, -1), (0, 1), (1, 0)]
 
-    # tuple: (heat-loss, x-coord, y-coord, length-of-current-run, current-direction)
-    q = [(0, 0, 0, 0, 'none')] 
+    # tuple: (heat-loss, x-coord, y-coord, length-of-current-run, x-direction, y-direction)
+    q = [(0, 0, 0, 0, 0, 0)] 
     visited = set()
     while q:
-        loss, x, y, k, dir = heappop(q)
+        loss, x, y, k, dx, dy = heappop(q)
+
         if x == m-1 and y == n-1:
             break
 
-        if any((x, y, k_, dir) in visited for k_ in range(1, k+1)):
+        if any((x, y, k_, dx, dy) in visited for k_ in range(1, k+1)):
             continue
     
-        visited.add((x, y, k, dir))
+        visited.add((x, y, k, dx, dy))
+        for new_dx, new_dy in directions:
+            straight = (new_dx == dx and new_dy == dy)
+            new_x, new_y = x + new_dx, y + new_dy
 
-        if x > 0 and dir != 'down' and (dir != 'up' or k != 3):
-            k_ = 1 if dir != 'up' else 1+k
-            heappush(q, (loss + grid[x-1][y], x-1, y, k_, 'up'))
+            if any((new_dx == -dx and new_dy == -dy,
+                    k == 3 and straight,
+                    new_x < 0, new_y < 0, 
+                    new_x == m, new_y == n)):
+                continue
 
-        if x < m-1 and dir != 'up' and (dir != 'down' or k != 3):
-            k_ = 1 if dir != 'down' else 1+k
-            heappush(q, (loss + grid[x+1][y], x+1, y, k_, 'down'))
-
-        if y > 0 and dir != 'right' and (dir != 'left' or k != 3):
-            k_ = 1 if dir != 'left' else 1+k
-            heappush(q, (loss + grid[x][y-1], x, y-1, k_, 'left'))
-
-        if y < n-1 and dir != 'left' and (dir != 'right' or k != 3):
-            k_ = 1 if dir != 'right' else 1+k
-            heappush(q, (loss + grid[x][y+1], x, y+1, k_, 'right'))
+            new_k = k + 1 if straight else 1            
+            heappush(q, (loss + grid[new_x][new_y], new_x, new_y, new_k, new_dx, new_dy))
 
     return loss
 
@@ -43,37 +41,37 @@ def part1(puzzle_input):
 def part2(puzzle_input):
     grid = [[int(d) for d in line] for line in puzzle_input.split('\n')]
     m, n = len(grid), len(grid[0])
+    directions = [(-1, 0), (0, -1), (0, 1), (1, 0)]
 
-    # tuple: (heat-loss, x-coord, y-coord, length-of-current-run, current-direction)
-    q = [(0, 0, 0, 0, 'right'), (0, 0, 0, 0, 'down')] 
+    # tuple: (heat-loss, x-coord, y-coord, length-of-current-run, x-direction, y-direction)
+    q = [(0, 0, 0, 0, 0, 1), (0, 0, 0, 0, 1, 0)] 
     visited = set()
     while q:
-        loss, x, y, k, dir = heappop(q)
+        loss, x, y, k, dx, dy = heappop(q)
+
         if x == m-1 and y == n-1:
             if k < 4:
                 continue
             break
 
-        if (x, y, k, dir) in visited:
+        if (x, y, k, dx, dy) in visited:
             continue
     
-        visited.add((x, y, k, dir))
+        visited.add((x, y, k, dx, dy))
 
-        if x > 0 and dir != 'down' and ((dir == 'up' and k < 10) or (dir != 'up' and k >= 4)):
-            k_ = 1 if dir != 'up' else 1+k
-            heappush(q, (loss + grid[x-1][y], x-1, y, k_, 'up'))
+        for new_dx, new_dy in directions:
+            straight = (new_dx == dx and new_dy == dy)
+            new_x, new_y = x + new_dx, y + new_dy
 
-        if x < m-1 and dir != 'up' and ((dir == 'down' and k < 10) or (dir != 'down' and k >= 4)):
-            k_ = 1 if dir != 'down' else 1+k
-            heappush(q, (loss + grid[x+1][y], x+1, y, k_, 'down'))
+            if any((new_dx == -dx and new_dy == -dy,
+                    k == 10 and straight,
+                    k < 4 and not straight,
+                    new_x < 0, new_y < 0, 
+                    new_x == m, new_y == n)):
+                continue
 
-        if y > 0 and dir != 'right' and ((dir == 'left' and k < 10) or (dir != 'left' and k >= 4)):
-            k_ = 1 if dir != 'left' else 1+k
-            heappush(q, (loss + grid[x][y-1], x, y-1, k_, 'left'))
-
-        if y < n-1 and dir != 'left' and ((dir == 'right' and k < 10) or (dir != 'right' and k >= 4)):
-            k_ = 1 if dir != 'right' else 1+k
-            heappush(q, (loss + grid[x][y+1], x, y+1, k_, 'right'))
+            new_k = k + 1 if straight else 1
+            heappush(q, (loss + grid[new_x][new_y], new_x, new_y, new_k, new_dx, new_dy))
 
     return loss
 

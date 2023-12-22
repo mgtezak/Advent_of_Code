@@ -35,7 +35,7 @@ def part2(puzzle_input):
     m, n = len(grid), len(grid[0])
     assert m == n and grid[n//2][n//2] == 'S', "The grid needs to be square with S exactly in the middle"
 
-    # After having crossed the border of the first grid, every further border crossing is seperated by n steps (length/width of grid)
+    # After having crossed the border of the first grid, all further border crossings are seperated by n steps (length/width of grid)
     # Therefore, the total number of grids to traverse in any direction is 26_501_365 // n = x_final
     # Assumption: at step 26_501_365 another border crossing is taking place
     # If so, then it follows that the first crossing takes place at 26_501_365 % n = remainder

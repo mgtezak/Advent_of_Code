@@ -1,5 +1,4 @@
 import networkx as nx
-import math
 
 with open('Advent_of_Code/2023/puzzle_input/25.txt', 'r') as f:
     puzzle_input = f.read()
@@ -16,8 +15,8 @@ def part1(puzzle_input):
     edge_betweenness = nx.edge_betweenness_centrality(graph)
     most_crucial_edges = sorted(edge_betweenness, key=edge_betweenness.get)[-3:]
     graph.remove_edges_from(most_crucial_edges)
-    group_sizes = [len(c) for c in nx.connected_components(graph)]
-    return math.prod(group_sizes)
+    size1, size2 = [len(c) for c in nx.connected_components(graph)]
+    return size1 * size2
 
 
 print('Part 1:', part1(puzzle_input))

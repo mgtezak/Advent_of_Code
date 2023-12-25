@@ -6,12 +6,13 @@ with open('Advent_of_Code/2023/puzzle_input/25.txt', 'r') as f:
 
 
 def part1(puzzle_input):
-    graph = nx.Graph()
+    edges = []
     for line in puzzle_input.split('\n'):
         node1, connected = line.split(': ')
         for node2 in connected.split():
-            graph.add_edges_from([(node1, node2)])
-    
+            edges.append((node1, node2))
+
+    graph = nx.from_edgelist(edges)
     edge_betweenness = nx.edge_betweenness_centrality(graph)
     most_crucial_edges = sorted(edge_betweenness, key=edge_betweenness.get)[-3:]
     graph.remove_edges_from(most_crucial_edges)

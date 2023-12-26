@@ -1,6 +1,4 @@
-# I re-did this one without the help of NetworkX, to see if i could.
-# What surprised me is that the vanilla python version turned out to have a lower runtime.
-# Apparently NetworkX is adding some unnecessary overhead.
+# I re-did this one without the help of NetworkX, to see if I could and surprisingly it runs just as fast
 
 from collections import defaultdict, deque
 

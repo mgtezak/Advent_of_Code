@@ -1,21 +1,23 @@
 import networkx as nx
+from itertools import combinations
 
 with open('Advent_of_Code/2023/puzzle_input/25.txt', 'r') as f:
     puzzle_input = f.read()
 
 
 def part1(puzzle_input):
-    edges = []
+    graph = nx.Graph()
     for line in puzzle_input.split('\n'):
         node1, connected = line.split(': ')
         for node2 in connected.split():
-            edges.append((node1, node2))
+            graph.add_edge(node1, node2, capacity=1)
 
-    graph = nx.from_edgelist(edges)
-    min_edge_cut = nx.minimum_edge_cut(graph)
-    graph.remove_edges_from(min_edge_cut)
-    size1, size2 = [len(c) for c in nx.connected_components(graph)]
-    return size1 * size2
+    for node1, node2 in combinations(graph.nodes, 2):
+        cuts, partitions = nx.minimum_cut(graph, node1, node2)
+        if cuts == 3:
+            break
+
+    return  len(partitions[0]) * len(partitions[1])
 
 
 print('Part 1:', part1(puzzle_input))

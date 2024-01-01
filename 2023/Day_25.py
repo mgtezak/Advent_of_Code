@@ -1,6 +1,7 @@
 import networkx as nx
 from itertools import combinations
 
+
 with open('Advent_of_Code/2023/puzzle_input/25.txt', 'r') as f:
     puzzle_input = f.read()
 

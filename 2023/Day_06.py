@@ -7,17 +7,15 @@ with open('Advent_of_Code/2023/puzzle_input/06.txt', 'r') as f:
 
 def part1(puzzle_input):
     times, distances = puzzle_input.split('\n')
-    times = list(map(int, re.findall('\d+', times)))
-    distances = list(map(int, re.findall('\d+', distances)))
+    times = map(int, re.findall('\d+', times))
+    distances = map(int, re.findall('\d+', distances))
     total = 1
     for t, d in zip(times, distances):
         wins = 0
-        speed = 0
-        for acceleration in range(1, t):
-            speed += 1
-            travelled = (t-acceleration) * speed
+        for speed in range(1, t):
+            travelled = (t-speed) * speed
             if travelled > d:
-                wins += (travelled > d)
+                wins += 1
             elif wins:
                 break
 

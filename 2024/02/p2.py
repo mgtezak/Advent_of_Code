@@ -1,26 +1,3 @@
-with open('Advent_of_Code/2024/puzzle_input/02.txt', 'r') as f:
-    puzzle_input = f.read()
-
-
-def part1(puzzle_input):        
-
-    def is_safe(seq, safe_range):
-        for i in range(1, len(seq)):
-            if seq[i] - seq[i-1] not in safe_range:
-                return False
-        return True
-    
-    safe = 0
-    increasing = range(1, 4)
-    decreasing = range(-3, 0)
-    for line in puzzle_input.split('\n'):
-        seq = [int(num) for num in line.split()]
-        safe += is_safe(seq, increasing) or is_safe(seq, decreasing)
-
-    return safe
-
-
-
 def part2(puzzle_input):        
 
     def is_safe(nums, safe_range, allow_skip):
@@ -47,8 +24,3 @@ def part2(puzzle_input):
         ])
 
     return safe
-
-
-
-print('Part 1:', part1(puzzle_input))
-print('Part 2:', part2(puzzle_input))

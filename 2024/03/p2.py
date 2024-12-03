@@ -5,13 +5,13 @@ def part2(puzzle_input):
     dont = r"don't\(\)"
     mul = r"mul\((\d+),(\d+)\)"
     total = 0
-    disabled = False
+    enabled = True
     for x in re.finditer(f'{do}|{dont}|{mul}', puzzle_input):
-        if re.fullmatch(dont, x.group()):
-            disabled = True
-        elif re.fullmatch(do, x.group()):
-            disabled = False
-        elif not disabled:
+        if re.fullmatch(do, x.group()):
+            enabled = True
+        elif re.fullmatch(dont, x.group()):
+            enabled = False
+        elif enabled:
             total += int(x.group(1)) * int(x.group(2))
 
     return total

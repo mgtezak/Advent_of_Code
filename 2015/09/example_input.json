@@ -1,0 +1,7 @@
+[
+  {
+    "input": "London to Dublin = 464\nLondon to Belfast = 518\nDublin to Belfast = 141",
+    "part1": 605,
+    "part2": 982
+  }
+]

@@ -1,6 +1,6 @@
 def part2(puzzle_input):
 
-    def backtrack(target, nums):
+    def is_valid(target, nums):
         n = len(nums)
         queue = [(1, nums[0])]
         while queue:
@@ -26,7 +26,7 @@ def part2(puzzle_input):
         left, right = line.split(': ')
         target = int(left)
         nums = [int(num) for num in right.split()]
-        if backtrack(target, nums):
+        if is_valid(target, nums):
             total += target
 
     return total

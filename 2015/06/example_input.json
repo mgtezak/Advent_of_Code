@@ -1,0 +1,27 @@
+[
+  {
+    "input": "turn on 0,0 through 999,999",
+    "part1": 1000000,
+    "part2": 1000000
+  },
+  {
+    "input": "toggle 0,0 through 999,0",
+    "part1": 1000,
+    "part2": 2000
+  },
+  {
+    "input": "turn off 499,499 through 500,500",
+    "part1": 0,
+    "part2": 0
+  },
+  {
+    "input": "turn on 0,0 through 0,0",
+    "part1": 1,
+    "part2": 1
+  },
+  {
+    "input": "toggle 0,0 through 999,999",
+    "part1": 1000000,
+    "part2": 2000000
+  }
+]

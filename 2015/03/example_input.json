@@ -1,0 +1,22 @@
+[
+  {
+    "input": ">",
+    "part1": 2,
+    "part2": 2
+  },
+  {
+    "input": "^v",
+    "part1": 2,
+    "part2": 3
+  },
+  {
+    "input": "^>v<",
+    "part1": 4,
+    "part2": 3
+  },
+  {
+    "input": "^v^v^v^v^v",
+    "part1": 2,
+    "part2": 11
+  }
+]

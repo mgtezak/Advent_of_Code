@@ -1,0 +1,12 @@
+[
+  {
+    "input": "abcdef",
+    "part1": 609043,
+    "part2": 6742839
+  },
+  {
+    "input": "pqrstuv",
+    "part1": 1048970,
+    "part2": 5714438
+  }
+]

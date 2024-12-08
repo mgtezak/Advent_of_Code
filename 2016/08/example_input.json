@@ -1,0 +1,7 @@
+[
+  {
+    "input": "rect 3x2\nrotate column x=1 by 1\nrotate row y=0 by 4\nrotate column x=1 by 1",
+    "part1": 6,
+    "part2": null
+  }
+]

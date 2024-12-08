@@ -1,0 +1,12 @@
+[
+  {
+    "input": "abba[mnop]qrst\nabcd[bddb]xyyx\naaaa[qwer]tyui\nioxxoj[asdfgh]zxcvbn",
+    "part1": 2,
+    "part2": 0
+  },
+  {
+    "input": "aba[bab]xyz\nxyx[xyx]xyx\naaa[kek]eke\nzazbz[bzb]cdb",
+    "part1": 0,
+    "part2": 3
+  }
+]

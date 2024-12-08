@@ -1,0 +1,7 @@
+[
+  {
+    "input": "inc b\njio b, +2\ntpl b\ninc b",
+    "part1": 2,
+    "part2": null
+  }
+]

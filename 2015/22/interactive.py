@@ -1,45 +1,49 @@
 '''I created this interactive version of the Day 22 challenge as an alternative and hopefully more fun way of solving it.
-It's basically a game that you can run in your terminal. The best scores achievable with my puzzle input are:
-Part 1: 953
-Part 2: 1289
-Scroll all the way down to see some winning strategies.'''
+It's basically a game that you can run in your terminal.
+
+simply run:
+`python interactive.py your_puzzle_input.txt`
+or 
+`python interactive.py your_puzzle_input.txt --hard`
+for hard mode
+'''
 
 import time
 from dataclasses import dataclass
+import re
+import argparse
 
-# from my puzzle input:
-boss_hp = 55
-boss_dmg = 8
-
-# to make it flow a bit more:
-sleep_time = 0.1
 
 @dataclass
 class InitialState:
+    boss_hp: int
     hard_mode: bool = False
-    player_turn: int = 1
+    player_turn: bool = True
     poison: int = 0
     shield: int = 0
     recharge: int = 0
     mana: int = 500
     spent_mana: int = 0
     player_hp: int = 50
-    boss_hp: int = boss_hp
+    
+# to make the game flow a bit more:
+def wait(t=0.1):
+    time.sleep(t)
 
-def play_interactive_game(GameState: InitialState) -> int:
-    turn = 'player' if GameState.player_turn == 1 else 'boss'
+def play_interactive_game(GameState: InitialState, boss_dmg: int) -> int:
+    turn = 'player' if GameState.player_turn else 'boss'
 
     print(f'    --- {turn} turn ---')
-    time.sleep(sleep_time)
+    wait()
     print(f'    - player has {GameState.player_hp} hp')
-    time.sleep(sleep_time)
+    wait()
     print(f'    - boss has {GameState.boss_hp} hp')
-    time.sleep(sleep_time)
+    wait()
     
     if GameState.hard_mode and GameState.player_turn:
         GameState.player_hp -= 1
         print('    you lose 1 hp due to hard mode')
-        time.sleep(sleep_time)
+        wait()
         if not GameState.player_hp:
             print('    ~~~~~~~~~~~~~~\n    you have 0 HP. you lose!\n')
             return
@@ -47,24 +51,24 @@ def play_interactive_game(GameState: InitialState) -> int:
     if GameState.poison:
         GameState.poison -= 1
         print(f'    poison deals 3 damage, its timer is now {GameState.poison}!')
-        time.sleep(sleep_time)
+        wait()
         GameState.boss_hp -= 3
         if GameState.boss_hp <= 0:
             print('    ~~~~~~~~~~~~~~\n    boss has 0 hp. you win!')
-            time.sleep(sleep_time)
+            wait()
             print(f'    TOTAL MANA SPENT: {GameState.spent_mana}\n')
             return
     
     if GameState.shield:
         GameState.shield -= 1
         print(f'    shield\'s timer is now {GameState.shield}!')
-        time.sleep(sleep_time)
-   
+        wait()
+
     if GameState.recharge:
         GameState.mana += 101
         GameState.recharge -= 1
         print(f'    recharge provides 101 mana; its timer is now {GameState.recharge}!')
-        time.sleep(sleep_time)
+        wait()
         
     if GameState.player_turn:
         spells = {}
@@ -84,52 +88,52 @@ def play_interactive_game(GameState: InitialState) -> int:
             return
         
         print(f'    ~~~~~~~~~~~~~~\n    with {GameState.mana} mana, here are your available spells:')
-        time.sleep(sleep_time)
+        wait()
         for spell, cost in spells.items():
             print(f'    {spell}:      \t{cost}')
-            time.sleep(sleep_time)
+            wait()
         spell = input('    choose spell: ')
         while spell not in spells:
             spell = input('    wrong input. try again. choose spell: ')
-        time.sleep(sleep_time)
+        wait()
         print('    ~~~~~~~~~~~~~~')
-        time.sleep(sleep_time)
+        wait()
 
         if spell == 'magic missle':
             print('    player casts magic missle dealing 4 damage!')
-            time.sleep(sleep_time)
+            wait()
             GameState.boss_hp -= 4
             GameState.mana -= 53
             GameState.spent_mana += 53
         elif spell == 'drain':
             print('    player casts drain!')
-            time.sleep(sleep_time)
+            wait()
             GameState.boss_hp -= 2
             GameState.player_hp += 2
             GameState.mana -= 73
             GameState.spent_mana += 73
         elif spell == 'shield':
             print('    player casts shield, increasing armor by 7!')
-            time.sleep(sleep_time)
+            wait()
             GameState.shield = 6
             GameState.mana -= 113
             GameState.spent_mana += 113
         elif spell == 'poison':
             print('    player casts poison!')
-            time.sleep(sleep_time)
+            wait()
             GameState.poison = 6
             GameState.mana -= 173
             GameState.spent_mana += 173
         elif spell == 'recharge':
             print('    player casts recharge!')
-            time.sleep(sleep_time)
+            wait()
             GameState.recharge = 5
             GameState.mana -= 229
             GameState.spent_mana += 229
     
         if GameState.boss_hp <= 0:
             print('    ~~~~~~~~~~~~~~\n    boss has 0 HP. you win!')
-            time.sleep(sleep_time)
+            wait()
             print(f'    TOTAL MANA SPENT: {GameState.spent_mana}\n')
             return
     
@@ -138,41 +142,45 @@ def play_interactive_game(GameState: InitialState) -> int:
         net_dmg = max(boss_dmg - player_armor, 1)
         GameState.player_hp -= net_dmg
         print(f'    ~~~~~~~~~~~~~~\n    boss attacks for {net_dmg} damage!')
-        time.sleep(sleep_time)
+        wait()
         if GameState.player_hp <= 0:
             print('    ~~~~~~~~~~~~~~\n    you have 0 HP. you lose!\n')
             return
     
-    time.sleep(sleep_time)
+    wait()
     print('          .')    
-    time.sleep(sleep_time)
+    wait()
     print('          .')
-    time.sleep(sleep_time)
+    wait()
     print('          .')
-    time.sleep(sleep_time)
+    wait()
     
-    GameState.player_turn = 1 - GameState.player_turn
-    return play_interactive_game(GameState)
+    GameState.player_turn = not GameState.player_turn
+    return play_interactive_game(GameState, boss_dmg)
 
-# Part 1:
-print('\n    Play Game in Easy Mode')
-time.sleep(sleep_time)
-play_interactive_game(InitialState())
-time.sleep(sleep_time*10)
+def main():
+    parser = argparse.ArgumentParser(description="Process a text file.")
+    parser.add_argument('file', type=str, help='Path to the text file')
+    parser.add_argument('--hard', action='store_true', help='Play the game in hard mode (default: False)')
+    args = parser.parse_args()
 
-# Part 2:
-print('\n    Play Game in Hard Mode')
-time.sleep(sleep_time)
-play_interactive_game(InitialState(hard_mode=True))
+    try:
+        with open(args.file, 'r') as file:
+            puzzle_input = file.read()
+    except FileNotFoundError:
+        print(f"Error: File '{args.file}' not found.")
+    except Exception as e:
+        print(f"An error occurred: {e}")
+
+    boss_hp, boss_dmg = map(int, re.findall(r'(\d+)', puzzle_input))
+    initial_state = InitialState(boss_hp=boss_hp, hard_mode=args.hard)
+    play_interactive_game(initial_state, boss_dmg)
 
 
+if __name__ == '__main__':
+    main()
 
 
-
-
-
-
-
-'''Winning strategies are:
+'''My winning strategies were:
 Part 1: shield, recharge, poison, magic missle, magic missle, poison, magic missle, magic missle, magic missle
 Part 2: poison, recharge, shield, poison, recharge, drain, poison, drain, magic missle'''

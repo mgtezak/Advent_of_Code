@@ -1,9 +1,6 @@
-with open('Advent_of_Code/2015/puzzle_input/23.txt') as input:
-    ins = [line.split() for line in input.read().split('\n')]
-
-def read_instructions(part2: bool=False) -> int:
-    '''Cycles through list of instructions until index i is out of bounds. Returns the value for b.'''
-    d = {'a': 0, 'b': 0} if not part2 else {'a': 1, 'b': 0}
+def part1(puzzle_input):
+    ins = [line.split() for line in puzzle_input.split('\n')]
+    d = {'a': 0, 'b': 0}
     i = 0
     while i in range(len(ins)):
         if ins[i][0] == 'hlf':
@@ -25,6 +22,3 @@ def read_instructions(part2: bool=False) -> int:
                 continue
         i += 1
     return d['b']
-
-print(f'Part 1: {read_instructions()}')
-print(f'Part 2: {read_instructions(part2=True)}')

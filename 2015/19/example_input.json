@@ -1,0 +1,12 @@
+[
+  {
+    "input": "H => HO\nH => OH\nO => HH\n\nHOH",
+    "part1": 4,
+    "part2": null
+  },
+  {
+    "input": "e => H\ne => O\nH => HO\nH => OH\nO => HH\n\nHOH",
+    "part1": 4,
+    "part2": 3
+  }
+]

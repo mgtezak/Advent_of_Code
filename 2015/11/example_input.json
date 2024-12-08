@@ -1,0 +1,12 @@
+[
+  {
+    "input": "abcdefgh",
+    "part1": "abcdffaa",
+    "part2": "abcdffbb"
+  },
+  {
+    "input": "ghijklmn",
+    "part1": "ghjaabcc",
+    "part2": "ghjbbcdd"
+  }
+]

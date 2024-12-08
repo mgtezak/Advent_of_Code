@@ -1,0 +1,7 @@
+[
+  {
+    "input": "cpy 41 a\ninc a\ninc a\ndec a\njnz a 2\ndec a",
+    "part1": 42,
+    "part2": null
+  }
+]

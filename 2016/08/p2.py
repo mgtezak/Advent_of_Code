@@ -1,5 +1,6 @@
 import numpy as np
 
+
 def part2(puzzle_input):
     instructions = [line.split() for line in puzzle_input.split('\n')]
     display = np.zeros((6, 50))
@@ -27,9 +28,4 @@ def part2(puzzle_input):
             for row in range(6):
                 display[row][col] = lights[row]
 
-    # formatted = ''
-    # for row in display:
-    #     row = ['#' if element == 1 else ' ' for element in row]
-    #     formatted += ''.join(row) + '\n'
-    # return formatted
     return '\n'.join(''.join(['#' if element == 1 else ' ' for element in row]) for row in display)

@@ -1,0 +1,32 @@
+[
+  {
+    "input": "A(1x5)BC",
+    "part1": 7,
+    "part2": 7
+  },
+  {
+    "input": "(3x3)XYZ",
+    "part1": 9,
+    "part2": 9
+  },
+  {
+    "input": "A(2x2)BCD(2x2)EFG",
+    "part1": 11,
+    "part2": 11
+  },
+  {
+    "input": "(6x1)(1x3)A",
+    "part1": 6,
+    "part2": 3
+  },
+  {
+    "input": "X(8x2)(3x3)ABCY",
+    "part1": 18,
+    "part2": 20
+  },
+  {
+    "input": "(25x3)(3x3)ABC(2x3)XY(5x2)PQRSTX(18x9)(3x2)TWO(5x7)SEVEN",
+    "part1": 238,
+    "part2": 445
+  }
+]

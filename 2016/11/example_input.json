@@ -1,0 +1,7 @@
+[
+  {
+    "input": "The first floor contains a hydrogen-compatible microchip and a lithium-compatible microchip.\nThe second floor contains a hydrogen generator.\nThe third floor contains a lithium generator.\nThe fourth floor contains nothing relevant.",
+    "part1": 11,
+    "part2": null
+  }
+]

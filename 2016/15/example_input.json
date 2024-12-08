@@ -1,0 +1,7 @@
+[
+  {
+    "input": "Disc #1 has 5 positions; at time=0, it is at position 4.\nDisc #2 has 2 positions; at time=0, it is at position 1.",
+    "part1": 5,
+    "part2": 85
+  }
+]

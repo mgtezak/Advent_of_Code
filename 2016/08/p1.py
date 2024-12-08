@@ -1,5 +1,6 @@
 import numpy as np
 
+
 def part1(puzzle_input, is_example_input=False):
     n_rows = 3 if is_example_input else 6
     n_cols = 7 if is_example_input else 50

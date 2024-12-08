@@ -1,0 +1,12 @@
+[
+  {
+    "input": "aa bb cc dd ee\naa bb cc dd aa\naa bb cc dd aaa",
+    "part1": 2,
+    "part2": 2
+  },
+  {
+    "input": "abcde fghij\nabcde xyz ecdab\na ab abc abd abf abj\niiii oiii ooii oooi oooo\noiii ioii iioi iiio",
+    "part1": 5,
+    "part2": 3
+  }
+]

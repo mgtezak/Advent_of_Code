@@ -1,0 +1,22 @@
+[
+  {
+    "input": "ne,ne,ne",
+    "part1": 3,
+    "part2": 3
+  },
+  {
+    "input": "ne,ne,sw,sw",
+    "part1": 0,
+    "part2": 2
+  },
+  {
+    "input": "ne,ne,s,s",
+    "part1": 2,
+    "part2": 2
+  },
+  {
+    "input": "se,sw,se,sw,sw",
+    "part1": 3,
+    "part2": 3
+  }
+]

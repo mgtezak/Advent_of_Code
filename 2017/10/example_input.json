@@ -1,0 +1,12 @@
+[
+  {
+    "input": "3, 4, 1, 5",
+    "part1": 12,
+    "part2": "00423f1d90f800d9c7a913fd7cd6df24"
+  },
+  {
+    "input": "AoC 2017",
+    "part1": null,
+    "part2": "33efeb34ea91902bb2f59c9920caa6cd"
+  }
+]

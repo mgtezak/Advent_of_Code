@@ -7,7 +7,7 @@ def part1(puzzle_input):
         if rows[r][c] != 'X':
             return 0
         return sum([
-            c > 2 and rows[r][c:c-4:-1] == 'XMAS',                                              # left
+            c > 2 and rows[r][c-3:c+1] == 'SAMX',                                               # left
             c < n - 3 and rows[r][c:c+4] == 'XMAS',                                             # right
             r > 2 and ''.join(rows[r-i][c] for i in range(4)) == 'XMAS',                        # up
             r < m - 3 and ''.join(rows[r+i][c] for i in range(4)) == 'XMAS',                    # down

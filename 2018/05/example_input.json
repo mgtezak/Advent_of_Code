@@ -1,0 +1,12 @@
+[
+  {
+    "input": "aabAAB",
+    "part1": 6,
+    "part2": 0
+  },
+  {
+    "input": "dabAcCaCBAcCcaDA",
+    "part1": 10,
+    "part2": 4
+  }
+]

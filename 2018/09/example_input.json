@@ -1,0 +1,27 @@
+[
+  {
+    "input": "10 players; last marble is worth 1618 points",
+    "part1": 8317,
+    "part2": 74765078
+  },
+  {
+    "input": "13 players; last marble is worth 7999 points",
+    "part1": 146373,
+    "part2": 1406506154
+  },
+  {
+    "input": "17 players; last marble is worth 1104 points",
+    "part1": 2764,
+    "part2": 20548882
+  },
+  {
+    "input": "21 players; last marble is worth 6111 points",
+    "part1": 54718,
+    "part2": 507583214
+  },
+  {
+    "input": "30 players; last marble is worth 5807 points",
+    "part1": 37305,
+    "part2": 320997431
+  }
+]

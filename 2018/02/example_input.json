@@ -1,0 +1,12 @@
+[
+  {
+    "input": "abcde\nbababc\nabbcde\nabcccd\naabcdd\nabcdee\nababab",
+    "part1": 12,
+    "part2": null
+  },
+  {
+    "input": "abcde\nfghij\nklmno\npqrst\nfguij\naxcye\nwvxyz",
+    "part1": 0,
+    "part2": "fgij"
+  }
+]

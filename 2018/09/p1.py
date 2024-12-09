@@ -1,11 +1,9 @@
-# from my puzzle input:
-n_players = 405
-last_marble = 70953
-
 from collections import deque, defaultdict
+import re
 
-
-def get_highscore(last_marble=last_marble, n_players=n_players):
+def part1(puzzle_input):
+    regex = r"(\d+) players; last marble is worth (\d+) points"
+    n_players, last_marble = [int(n) for n in re.findall(regex, puzzle_input)[0]]
     circle = deque([0])
     scores = defaultdict(int)
 
@@ -19,7 +17,3 @@ def get_highscore(last_marble=last_marble, n_players=n_players):
             circle.append(n)
 
     return max(scores.values())
-
-
-print(f'Part 1: {get_highscore()}')
-print(f'Part 2: {get_highscore(100 * last_marble)}')

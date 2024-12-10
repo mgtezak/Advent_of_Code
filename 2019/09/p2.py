@@ -1,16 +1,14 @@
-path = 'Advent_of_Code/2019/puzzle_input/09.txt'
-
 from collections import defaultdict
 
-with open(path) as input:
-    intcode = [int(n) for n in input.read().split(',')]
+def part2(puzzle_input):
 
-nums = defaultdict(int)
+    intcode = [int(n) for n in puzzle_input.split(',')]
 
-for i, n in enumerate(intcode):
-    nums[i] = n
+    nums = defaultdict(int)
 
-def run_intcode(input_val=1):
+    for i, n in enumerate(intcode):
+        nums[i] = n
+
     i = 0
     relative_i = 0
     while nums[i] != 99:
@@ -33,7 +31,7 @@ def run_intcode(input_val=1):
             i += 4
 
         elif n[-1] == '3': 
-            nums[write_to[1]] = input_val
+            nums[write_to[1]] = 2
             i += 2
 
         elif n[-1] == '4':
@@ -58,9 +56,4 @@ def run_intcode(input_val=1):
             relative_i += args[1]
             i += 2
 
-
     return output_val
-
-
-print(f'Part 1: {run_intcode()}')
-print(f'Part 2: {run_intcode(2)}')

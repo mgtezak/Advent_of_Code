@@ -1,0 +1,22 @@
+[
+  {
+    "input": "FBFBBFFRLR",
+    "part1": 357,
+    "part2": null
+  },
+  {
+    "input": "BFFFBBFRRR",
+    "part1": 567,
+    "part2": null
+  },
+  {
+    "input": "FFFBBBFRRR",
+    "part1": 119,
+    "part2": null
+  },
+  {
+    "input": "BBFFBBFRLL",
+    "part1": 820,
+    "part2": null
+  }
+]

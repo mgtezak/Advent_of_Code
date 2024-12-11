@@ -1,0 +1,12 @@
+[
+  {
+    "input": "abcx\nabcy\nabcz",
+    "part1": 6,
+    "part2": 3
+  },
+  {
+    "input": "abc\n\na\nb\nc\n\nab\nac\n\na\na\na\na\n\nb",
+    "part1": 11,
+    "part2": 6
+  }
+]

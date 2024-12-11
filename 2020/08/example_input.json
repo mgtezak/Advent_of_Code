@@ -1,0 +1,7 @@
+[
+  {
+    "input": "nop +0\nacc +1\njmp +4\nacc +3\njmp -3\nacc -99\nacc +1\njmp -4\nacc +6",
+    "part1": 5,
+    "part2": 8
+  }
+]

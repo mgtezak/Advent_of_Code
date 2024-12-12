@@ -1,0 +1,7 @@
+[
+  {
+    "input": "NNCB\n\nCH -> B\nHH -> N\nCB -> H\nNH -> C\nHB -> C\nHC -> B\nHN -> C\nNN -> C\nBH -> H\nNC -> B\nNB -> B\nBN -> B\nBB -> N\nBC -> B\nCC -> N\nCN -> C",
+    "part1": 1588,
+    "part2": 2188189693529
+  }
+]

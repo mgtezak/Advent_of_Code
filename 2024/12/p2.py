@@ -36,9 +36,7 @@ def part2(puzzle_input):
             i, j = queue.pop()
             region.add((i, j))
             for x, y in [(i-1, j), (i, j-1), (i+1, j), (i, j+1)]:
-                if (x in range(m) and 
-                    y in range(n) and 
-                    grid[x][y] == plant and
+                if (is_same(x, y, plant) and
                     (x, y) not in region and
                     (x, y) not in queue
                 ):

@@ -16,9 +16,9 @@ def part1(puzzle_input):
                 fence += 1
                 continue
             visited.add((i, j))
-            for x, y in [(1, 0), (0, 1), (-1, 0), (0, -1)]:
-                if (i+x, j+y) not in visited:
-                    queue.append((i+x, j+y))
+            for x, y in [(i-1, j), (i, j-1), (i+1, j), (i, j+1)]:
+                if (x, y) not in visited:
+                    queue.append((x, y))
                     
         return visited, len(visited) * fence
             

@@ -1,0 +1,12 @@
+[
+  {
+    "input": "Register A: 729\nRegister B: 0\nRegister C: 0\n\nProgram: 0,1,5,4,3,0",
+    "part1": "4,6,3,5,6,3,5,2,1,0",
+    "part2": null
+  },
+  {
+    "input": "Register A: 2024\nRegister B: 0\nRegister C: 0\n\nProgram: 0,3,5,4,3,0",
+    "part1": "5,7,3,0",
+    "part2": 117440
+  }
+]

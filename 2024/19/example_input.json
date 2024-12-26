@@ -1,0 +1,7 @@
+[
+  {
+    "input": "r, wr, b, g, bwu, rb, gb, br\n\nbrwrr\nbggr\ngbbr\nrrbgbr\nubwu\nbwurrg\nbrgr\nbbrgwb",
+    "part1": 6,
+    "part2": 16
+  }
+]

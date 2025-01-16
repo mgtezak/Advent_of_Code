@@ -1,3 +1,5 @@
+# Even though I made it somewhat my own, I pretty much stole this approach from here: 
+# https://gitlab.com/0xdf/aoc2024/-/blob/main/day24/day24.py?ref_type=heads
 
 import re
 from operator import __and__, __xor__, __or__
@@ -11,7 +13,7 @@ def part2(puzzle_input):
     for in1, op, in2, out in re.findall(r'(\w+) (AND|XOR|OR) (\w+) -> (\w+)', gates):
         wire_map[out] = (op, in1, in2)
 
-    def make_wire(char, i):
+    def make_wire(char: str, i: int) -> str:
         return f'{char}{i:02}'
 
     make_x, make_y, make_z = [partial(make_wire, char) for char in 'xyz']
@@ -21,7 +23,7 @@ def part2(puzzle_input):
         null_values[make_x(i)] = 0
         null_values[make_y(i)] = 0
 
-    def init_values(i, x, y, carry):
+    def init_values(i: int, x: int, y: int, carry: int) -> dict:
         x_values = {
             make_x(i): x, 
             make_x(i-1): carry
@@ -38,22 +40,19 @@ def part2(puzzle_input):
         'OR': __or__
     }
 
-    def get_value(wire, values):
+    def get_value(wire: str, values: dict) -> int:
         if wire in values:
             return values[wire]
         op, in1, in2 = wire_map[wire]
         values[wire] = operators[op](get_value(in1, values), get_value(in2, values))
         return values[wire]
 
-    def find_wire(op1, ins1):
+    def find_wire(op1: str, ins1: set[str]) -> str | None:
         for out, (op2, *ins2) in wire_map.items():
             if op1 == op2 and ins1.issubset(set(ins2)):
                 return out
-            
-    def swap_wires(w1, w2):
-        wire_map[w1], wire_map[w2] = wire_map[w2], wire_map[w1]
 
-    def fix_bit(i):
+    def fix_bit(i: int) -> set[str]:
         curr_x, curr_y = make_x(i), make_y(i)
         prev_x, prev_y = make_x(i-1), make_y(i-1)
         curr_xor = find_wire('XOR', {curr_x, curr_y})
@@ -64,11 +63,11 @@ def part2(puzzle_input):
         z = find_wire('XOR', {curr_xor, carry})
         if z is None:
             z_ins = set(wire_map[make_z(i)][1:])
-            swapped = z_ins ^ {curr_xor, carry}
+            w1, w2 = z_ins ^ {curr_xor, carry}
         else:
-            swapped = {z, make_z(i)}
-        swap_wires(*swapped)
-        return swapped
+            w1, w2 = {z, make_z(i)}
+        wire_map[w1], wire_map[w2] = wire_map[w2], wire_map[w1]
+        return {w1, w2}
 
     swapped_wires = set()
     for i in range(1, 45):

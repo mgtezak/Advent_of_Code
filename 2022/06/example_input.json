@@ -1,0 +1,27 @@
+[
+  {
+    "input": "mjqjpqmgbljsphdztnvjfqwrcgsmlb",
+    "part1": 7,
+    "part2": 19
+  },
+  {
+    "input": "bvwbjplbgvbhsrlpgdmjqwftvncz",
+    "part1": 5,
+    "part2": 23
+  },
+  {
+    "input": "nppdvjthqldpwncqszvftbrmjlhg",
+    "part1": 6,
+    "part2": 23
+  },
+  {
+    "input": "nznrnfrfntjfmvfwmzdfjlvtqnbhcprsg",
+    "part1": 10,
+    "part2": 29
+  },
+  {
+    "input": "zcfzfwzzqfrljwzlrfnpqdbhtmscgvjw",
+    "part1": 11,
+    "part2": 26
+  }
+]

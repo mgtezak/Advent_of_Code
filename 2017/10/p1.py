@@ -1,7 +1,7 @@
 def part1(puzzle_input, is_example_input=False):
     n = 5 if is_example_input else 256
     lengths = list(map(int, puzzle_input.split(',')))
-    circle = [i for i in range(n)]
+    circle = list(range(n))
     pos = 0
     skip_size = 0
     for l in lengths:

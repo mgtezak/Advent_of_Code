@@ -11,12 +11,16 @@ def part2(puzzle_input):
             while substring:
                 circle[pos] = substring.pop()
                 pos = (pos + 1) % 256
+                
             pos = (pos + skip_size) % 256
             skip_size += 1
+
     knot_hash = ''
     for i in range(16):
         block_val = 0 
         for n in circle[(i * 16): i * 16 + 16]:
             block_val ^= n
+
         knot_hash += hex(block_val)[2:].zfill(2)
+
     return knot_hash

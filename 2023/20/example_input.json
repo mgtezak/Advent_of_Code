@@ -1,0 +1,7 @@
+[
+  {
+    "input": "broadcaster -> a, b, c\n%a -> b\n%b -> c\n%c -> inv\n&inv -> a",
+    "part1": 32000000,
+    "part2": null
+  }
+]

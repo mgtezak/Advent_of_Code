@@ -1,0 +1,17 @@
+[
+  {
+    "input": "ihgpwlah",
+    "part1": "DDRRRD",
+    "part2": 370
+  },
+  {
+    "input": "kglvqrro",
+    "part1": "DDUDRLRRUDRD",
+    "part2": 492
+  },
+  {
+    "input": "ulqzkmiv",
+    "part1": "DRURDRUDDLLDLUURRDULRLDUUDDDRR",
+    "part2": 830
+  }
+]

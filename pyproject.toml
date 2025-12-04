@@ -1,0 +1,9 @@
+[project]
+name = "advent-of-code"
+version = "0.1.0"
+description = "Advent of Code Python solutions"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "numpy>=2.3.5",
+]

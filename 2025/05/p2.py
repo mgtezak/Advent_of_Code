@@ -1,5 +1,5 @@
 def part2(puzzle_input):
-    ranges, ids = puzzle_input.split('\n\n')
+    ranges, _ = puzzle_input.split('\n\n')
     ranges = list(list(map(int, line.split('-'))) for line in ranges.splitlines())
 
     fresh_count = 0

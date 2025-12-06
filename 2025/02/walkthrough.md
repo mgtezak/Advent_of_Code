@@ -27,8 +27,8 @@
 ***Approach:***
 - _Observation:_ there now is a danger of duplication: 2222 can be created by repeating the number 2 four times or the number 22 twice
 - To avoid counting the same invalid ID twice, initialize `invalid` as a `set` instead of a number
-- The same outer loop as in part 1, but now we add another inner loop which increments the repetition factor `mul`
-- `mul` must be at least 2 and at most 10 (although the upper boundary shrinks as digits increase => optimize by exiting the loop early)
-- For each combination of `i` and `mul` create a potential `candidate`
+- The same outer loop as in part 1, but now we add another inner loop which increments the repetition factor `repeat`
+- `repeat` must be at least 2 and at most 10 (although the upper boundary shrinks as digits increase => optimize by exiting the loop early)
+- For each combination of `i` and `repeat` create a potential `candidate`
 - If a candidate falls within one of the ranges add it to the set `invalid`
 - After the loop return the sum of all IDs in the set

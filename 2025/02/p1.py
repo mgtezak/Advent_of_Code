@@ -6,5 +6,6 @@ def part1(puzzle_input):
         for lower, upper in ranges:
             if lower <= candidate <= upper:
                 invalid += candidate
+                break
 
     return invalid

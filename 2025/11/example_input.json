@@ -1,0 +1,12 @@
+[
+  {
+    "input": "aaa: you hhh\nyou: bbb ccc\nbbb: ddd eee\nccc: ddd eee fff\nddd: ggg\neee: out\nfff: out\nggg: out\nhhh: ccc fff iii\niii: out",
+    "part1": 5,
+    "part2": null
+  },
+  {
+    "input": "svr: aaa bbb\naaa: fft\nfft: ccc\nbbb: tty\ntty: ccc\nccc: ddd eee\nddd: hub\nhub: fff\neee: dac\ndac: fff\nfff: ggg hhh\nggg: out\nhhh: out",
+    "part1": null,
+    "part2": 2
+  }
+]
